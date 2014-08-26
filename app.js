@@ -10,6 +10,11 @@ $(document).ready(function () {
 		//in input field on click (.btn) this function runs
 		var count = $(".typeNumber").val();
 		//variable to capture value of user's input
+		$(".typeNumber").val(" ");
+		//resets the input field to blank after submitting a number
+		$(".results").text(" ");
+		//resets the results to nothing when submitting another number
+		
 		var num = Number(count);
 		//changes the value of the user's input to a number using the Number() function
 		for (a=1; a <= num; a++) {
@@ -17,17 +22,24 @@ $(document).ready(function () {
 			// a can't go any higher than the number
 			// a is incremented up to show all the numbers counting up to the user's input number
 			if (num % 1 !== 0) {
-	   			alert("Only whole numbers, please!");
-				break
+				alert("Only whole numbers please!");
+				console.log(num);
 			}
-			if(num == isNaN) {
+			else if(num == "") {
 			   alert("Please enter a number!");
+			   console.log(num);
 	   		}
+			else if(num > 20 || num < 0) {
+				alert("Only numbers between 0 and 100.");
+			}
+			else {
 			evaluateNum(a);
 			//evaluates the number
 			$(".results").append(a + "<br>");
 			//appends the results to the div to print results
-		}		
+			
+			}	
+		}	
 				
 	});
 var evaluateNum = function (num) {	
